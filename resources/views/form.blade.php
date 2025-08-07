@@ -27,7 +27,7 @@
 
             <x-input-checkbox label="Skills" name="skills" />
             <x-input-radio label="Gender" name="gender" />
-            <x-input-select label="Country" name="country" />
+            <x-input-select label="Country" name="country" class="form-select select2" />
             
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
