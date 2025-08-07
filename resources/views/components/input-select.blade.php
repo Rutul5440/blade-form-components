@@ -1,15 +1,14 @@
-@props([
-    'label' => '',
-    'name',
-    'class' => 'form-select',
-])
-
-<div class="mb-3">
-    <label class="form-label">{{ $label }}</label>
-    <select name="{{ $name }}" {{ $attributes->merge(['class' => $class]) }}>
-        <option value="">-- Select --</option>
-        <option value="India">Test 1</option>
-        <option value="USA">Test 2</option>
-        <option value="UK">Test 3</option>
+<div>
+    <label for="{{ $label_for }}"> {{ $label }} @if ($isMandatory)
+            <span class="text-danger">*</span>
+        @endif
+    </label>
+    <select class="form-control select2" {{ $attributes->merge(['class' => $class]) }} name="{{ $select_name }}"
+        id="{{ $select_id }}">
+        <option></option>
+        @foreach ($options as $option)
+            <option value="{{ $option->id }}">{{ $option->name }}</option>
+        @endforeach
     </select>
+    <span class="text-danger err-class" id="{{ 'err-' . $select_id }}"></span>
 </div>
